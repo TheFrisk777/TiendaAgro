@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50)->nullable()->default('Nombre');
+            $table->string('last_name', 50)->nullable()->default('Primer Apellido');
+            $table->string('second_last_name', 50)->nullable()->default('Segundo Apellido');
+            $table->string('email', 100)->nullable()->default('Correo Electrónico');
+            $table->bigInteger('phone')->nullable()->default(7848888888);
             $table->timestamps();
         });
     }
