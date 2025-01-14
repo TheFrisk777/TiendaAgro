@@ -8,3 +8,7 @@ Route::get('/', function () {
 
 
 Route::resource('/products',App\Http\Controllers\ProductController::class);
+
+Route::resource('/clients',App\Http\Controllers\ClientController::class);
+
+Route::resource('/sales',App\Http\Controllers\SaleController::class);

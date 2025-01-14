@@ -1,19 +1,27 @@
-<!-- Main content -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="fa-solid fa-code"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="{{route('index')}}" href="#">Index</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('products.index')}}">Productos</a>
-          </li>
-        </ul>
-      </div>
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="https://zenithamericas.com.do/wp-content/uploads/2024/07/Agroquimicos-x2.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        AgroTech
+        </a>
+
+        <!-- Botones (Index y Productos) -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('index')}}">Index</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('products.index')}}">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('clients.index')}}">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('sales.index')}}">Ventas</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>

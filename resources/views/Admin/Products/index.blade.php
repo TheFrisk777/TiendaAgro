@@ -4,6 +4,7 @@
 <br>
 <h2 class="text-center">Lista de Productos Agroquimicos</h2>
 <br>
-<br>
+<table>
 
+</table>
 @endsection

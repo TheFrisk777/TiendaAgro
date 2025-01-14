@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body style="background-image: url('https://png.pngtree.com/background/20210709/original/pngtree-cartoon-hand-drawn-green-plant-landscape-background-picture-image_950974.jpg')">
+<body style="background-image: url('https://png.pngtree.com/background/20230410/original/pngtree-cartoon-plant-border-background-picture-image_2377441.jpg')">
     @include('fragments.navbar')
     @if(@session('status'))
         {{session('status')}}
