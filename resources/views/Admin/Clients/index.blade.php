@@ -1,3 +1,10 @@
-<div>
-    <!-- It is quality rather than quantity that matters. - Lucius Annaeus Seneca -->
-</div>
+@extends('layout.main_template')
+@section('content')
+
+<br>
+<h2 class="text-center">Lista de Clientes</h2>
+<br>
+<table>
+
+</table>
+@endsection
