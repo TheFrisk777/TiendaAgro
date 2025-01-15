@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->foreign(columns: 'cat_id')
                 ->references(columns: 'id')
-                ->on('category')
+                ->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

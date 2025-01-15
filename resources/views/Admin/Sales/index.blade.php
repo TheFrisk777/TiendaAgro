@@ -2,7 +2,7 @@
 @section('content')
 
 <br>
-<h2 class="text-center">Lista de Ventas</h2>
+<h2 class="text-center">Comprar un Producto</h2>
 <br>
 <table>
 

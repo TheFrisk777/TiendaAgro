@@ -24,6 +24,7 @@ class SaleController extends Controller
     public function create()
     {
         //
+        return view('admin.sales.create');
     }
 
     /**

@@ -25,8 +25,6 @@ class ProductController extends Controller
     public function create()
     {
         //
-        $cat = Category::pluck('id','cat');
-        return view('admin.products.create', compact('cat'));
     }
 
     /**
@@ -59,8 +57,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        $cat = Category::pluck('id','cat');
-        return view('admin.products.edit', compact('product','cat'));
     }
 
     /**

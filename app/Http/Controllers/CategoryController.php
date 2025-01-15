@@ -1,9 +1,8 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        // Recuperar todas las categorías con paginación
+        $categories = Category::paginate(3);
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +22,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        // Mostrar el formulario de creación
+        return view('admin.categories.create');
     }
 
     /**
@@ -29,7 +31,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos recibidos
+        $request->validate([
+            'category' => 'required|string|max:255|unique:categories,category',
+        ]);
+
+        // Crear una nueva categoría
+        Category::create($request->all());
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('categories.index')->with('status', 'Categoría creada exitosamente.');
     }
 
     /**
@@ -37,7 +48,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // Mostrar los detalles de una categoría específica
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -45,7 +57,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // Mostrar el formulario de edición
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -53,7 +66,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // Validar los datos recibidos
+        $request->validate([
+            'category' => 'required|string|max:255|unique:categories,category,' . $category->id,
+        ]);
+
+        // Actualizar la categoría
+        $category->update($request->all());
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('categories.index')->with('status', 'Categoría actualizada exitosamente.');
+    }
+
+    public function delete(Category $category)
+    {
+        echo view('admin.categories.delete', compact('category'));
     }
 
     /**
@@ -61,6 +88,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index')->with('status', 'Categoría eliminada exitosamente.');
     }
 }

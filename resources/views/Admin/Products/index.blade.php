@@ -4,7 +4,6 @@
 <br>
 <h2 class="text-center">Lista de Productos Agroquimicos</h2>
 <br>
-<a type="button" class="btn btn-primary" a href="{{route('products.create')}}">Crear Producto</a>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
@@ -44,6 +43,7 @@
             <tr>
                 <th>Producto</th>
                 <th>Descripción</th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -54,8 +54,10 @@
                 </td>
                 <td>{{$product->nameProd}}</td>
                 <td>{{$product->descProd}}</td>
+                <td>{{$product->category->category}}</td>
                 <td>{{$product->stock}}</td>
                 <td>{{$product->price}}</td>
+                <td></td>
             </tr>
             @endforeach
         </tbody>

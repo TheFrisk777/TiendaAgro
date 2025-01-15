@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('cat', 100)->nullable()->default('text');
+            $table->string('category', 100)->nullable()->default('Categoria');
+            $table->string('description', 100)->nullable()->default('Descripcion');
             $table->timestamps();
         });
     }

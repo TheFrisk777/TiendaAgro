@@ -19,7 +19,10 @@
                     <a class="nav-link" href="{{route('clients.index')}}">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('sales.index')}}">Ventas</a>
+                    <a class="nav-link" href="{{route('sales.index')}}">Comprar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('categories.index')}}">Categorias</a>
                 </li>
             </ul>
         </div>
