@@ -16,3 +16,5 @@ Route::resource('/sales',App\Http\Controllers\SaleController::class);
 Route::resource('/categories',App\Http\Controllers\CategoryController::class);
 
 Route::get('/categories/{category}/delete',[App\Http\Controllers\CategoryController::class, 'delete'])->name('categories.delete');
+
+Route::get('/clients/{client}/delete',[App\Http\Controllers\ClientController::class, 'delete'])->name('clients.delete');

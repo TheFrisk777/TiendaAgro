@@ -24,6 +24,7 @@ class ClientController extends Controller
     public function create()
     {
         //
+        return view('admin.clients.create');
     }
 
     /**
@@ -31,7 +32,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos del formulario
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'second_last_name' => 'nullable|string|max:255',
+            'email' => 'required|email|unique:clients,email',
+            'phone' => 'required|string|max:15',
+        ]);
+
+        // Crear un nuevo cliente
+        Client::create($validatedData);
+
+        // Redirigir al índice con un mensaje de éxito
+        return redirect()->route('clients.index')->with('success', 'Cliente creado correctamente.');
     }
 
     /**
@@ -40,6 +54,7 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         //
+        return view('admin.clients.show', compact('client'));
     }
 
     /**
@@ -48,6 +63,7 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         //
+        return view('admin.clients.edit', compact('client'));
     }
 
     /**
@@ -55,7 +71,25 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'second_last_name' => 'nullable|string|max:255',
+            'email' => 'required|email|unique:clients,email,' . $client->id,
+            'phone' => 'required|string|max:15',
+        ]);
+
+        // Actualizar los datos del cliente
+        $client->update($validatedData);
+
+        // Redirigir al índice con un mensaje de éxito
+        return redirect()->route('clients.index')->with('success', 'Cliente actualizado correctamente.');
+
+    }
+
+    public function delete(Client $client)
+    {
+        echo view('admin.clients.delete', compact('client'));
     }
 
     /**
@@ -64,5 +98,9 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+        $client->delete();
+
+        // Redirigir al índice con un mensaje de éxito
+        return redirect()->route('clients.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }
