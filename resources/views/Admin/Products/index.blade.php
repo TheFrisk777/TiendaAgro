@@ -88,12 +88,12 @@
         <tbody>
             @foreach ($products as $product)
             <tr>
+                <td><img src="/imagen/products/{{$product->imagen}}"></td>
                 <td>{{ $product->nameProd }}</td>
                 <td>{{ $product->category->category}}</td>
                 <td>{{ $product->descProd }}</td>
                 <td>{{ $product->stock }}</td>
                 <td>${{$product->price}}</td>
-                <td><img src="/imagen/products/{{$product->imagen}}" alt="producto"></td>
                 <td>
                     <a type="button" class="btn btn-warning" href="{{route('products.edit',$product)}}">
                         <i class="fa-solid fa-file-signature"></i>
@@ -106,11 +106,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
-
-<!-- Paginación -->
-<div class="d-flex justify-content-center mt-3">
-    {{ $products->links() }}
 </div>
 
 @endsection

@@ -67,28 +67,28 @@
     <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         
-        <label for="nameProducts">Nombre del Producto</label>
-        <input type="text" name="nameProducts" id="nameProducts" placeholder="Ingrese el nombre del producto" value="{{ old('nameProducts') }}">
+        <label for="">Nombre del Producto</label>
+        <input type="text" name="nameProd">
 
         <label for="">Categoria</label>
-        <select name="cat_id">
+        <select name="cat">
             <option value="">Selecciona...</option>
             @foreach ($categories as $category=>$id)
             <option value="{{$id}}">{{$category}}</option>
             @endforeach
         </select>
 
-        <label for="descProd">Descripción</label>
-        <input type="text" name="descProd" id="descProd" placeholder="Ingrese una descripción" value="{{ old('descProd') }}">
+        <label for="">Descripción</label>
+        <input type="text" name="descProd">
         
-        <label for="stock">Cantidad</label>
-        <input type="number" name="stock" id="stock" placeholder="Ingrese la cantidad" value="{{ old('stock') }}">
+        <label for="">Cantidad</label>
+        <input type="number" name="stock">
 
-        <label for="unit_price">Precio Unitario</label>
-        <input type="text" name="unit_price" id="unit_price" placeholder="Ingrese el precio unitario" value="{{ old('unit_price') }}">
+        <label for="">Precio Unitario</label>
+        <input type="text" name="unit_price">
 
-        <label for="imagen">Imagen</label>
-        <input type="file" name="imagen" id="imagen">
+        <label for="">Imagen</label>
+        <input type="file" name="imagen">
 
         <div class="form-actions">
             <button type="submit" class="btn-submit">Registrar</button>

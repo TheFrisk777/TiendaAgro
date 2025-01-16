@@ -20,3 +20,5 @@ Route::get('/categories/{category}/delete',[App\Http\Controllers\CategoryControl
 Route::get('/clients/{client}/delete',[App\Http\Controllers\ClientController::class, 'delete'])->name('clients.delete');
 
 Route::get('/products/{product}/delete',[App\Http\Controllers\ProductController::class, 'delete'])->name('products.delete');
+
+Route::get('/sales/{sale}/delete',[App\Http\Controllers\SaleController::class, 'delete'])->name('sales.delete');
