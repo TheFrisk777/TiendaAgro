@@ -16,12 +16,12 @@
 
 <style>
     .form-container {
-        margin: 20px auto; /* Centra el formulario y añade un margen superior */
+        margin: 20px auto;
         padding: 20px;
-        width: 50%; /* Ancho del formulario */
-        border: 1px solid #ddd; /* Borde del formulario */
-        border-radius: 5px; /* Bordes ligeramente redondeados */
-        background-color: #f9f9f9; /* Fondo claro */
+        width: 50%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
     }
 
     label {
@@ -33,14 +33,14 @@
     input {
         width: 100%;
         padding: 10px;
-        margin-bottom: 15px; /* Espacio entre los campos */
+        margin-bottom: 15px;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
     }
 
     .form-actions {
-        margin-top: 20px; /* Separación de los botones */
+        margin-top: 20px;
         text-align: center;
     }
 

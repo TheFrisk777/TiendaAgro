@@ -23,7 +23,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-    /* Contenedor para el formulario */
+
     .form-container {
         margin: 20px auto;
         padding: 20px;
@@ -41,7 +41,6 @@
         text-align: center;
     }
 
-    /* Estilos para los botones */
     .btn {
         padding: 7px 10px;
         border: none;
