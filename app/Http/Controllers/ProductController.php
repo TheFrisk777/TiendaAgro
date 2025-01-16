@@ -25,6 +25,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $categories = Category::pluck('id','category');
+        return view( 'admin.products.create',compact('categories'));
     }
 
     /**
@@ -32,7 +34,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //echo "Registro Realizado";
+        //dd($request);
         $data=$request->all();
         if(isset($data["imagen"])){
             $data["imagen"]= $filename = time().".".$data["imagen"]->extension();
@@ -57,6 +60,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::pluck('id','category');
+        echo view('admin.products.edit', compact('categories','category'));
     }
 
     /**
@@ -64,7 +69,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //echo "Update Productos";
+        //Si el campo imagen tiene informacion
         $data=$request->all();
         if(isset($data["imagen"])){
             //Cambiar el nombre del archivo a cargar
@@ -76,11 +82,18 @@ class ProductController extends Controller
         return to_route('products.index')->with('status','Producto Actualizado');
     }
 
+    public function delete(Product $product)
+    {
+        echo view('admin.products.delete', compact('product'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+        return redirect()->route('products.index')->with('status', 'Producto eliminado exitosamente.');
     }
 }

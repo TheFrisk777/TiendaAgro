@@ -2,8 +2,13 @@
 @section('content')
 
 <br>
-<h2 class="text-center">Lista de Productos Agroquimicos</h2>
+<h2 class="text-center">Lista de Productos Agroquímicos</h2>
 <br>
+
+<div class="button-container">
+    <a href="{{ route('products.create') }}" class="btn btn-outline-success">Crear Producto</a>
+</div>
+
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
@@ -11,7 +16,7 @@
     .table-container {
         margin: 0 auto; /* Centra la tabla */
         padding: 0 20px; /* Espacio en los lados izquierdo y derecho */
-        width: 90%; /* Puedes ajustar el ancho según lo que necesites */
+        width: 90%; /* Ajusta el ancho según lo que necesites */
         box-sizing: border-box; /* Asegura que el padding esté dentro del ancho */
     }
 
@@ -23,17 +28,47 @@
 
     th, td {
         padding: 8px; /* Espacio dentro de las celdas */
-        text-align: left; /* Alineación del texto dentro de las celdas */
+        text-align: center; /* Alineación del texto dentro de las celdas */
         border: 1px solid #ddd; /* Borde de las celdas */
     }
 
-    /* Estilos para las columnas */
-    th:nth-child(1), td:nth-child(1) {
-        width: 20%; /* Hacemos la columna de Producto más pequeña */
+    th {
+        background-color: #f8f9fa; /* Color de fondo del encabezado */
     }
 
-    th:nth-child(2), td:nth-child(2) {
-        width: 80%; /* Hacemos la columna de Descripción más grande */
+    /* Imagen en la tabla */
+    img {
+        width: 50px; 
+        height: auto; 
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #Pa {
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        border: 1px solid #28a745;
+        background-color: #f8f9fa;
+        color: #28a745;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #Pa {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .btn a {
+        text-decoration: none;
+        color: inherit;
     }
 </style>
 
@@ -41,27 +76,42 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Imagen</th>
                 <th>Producto</th>
                 <th>Descripción</th>
-                <th> </th>
+                <th>Categoría</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($products as $product)
             <tr>
+                <td>{{ $product->nameProd }}</td>
+                <td>{{ $product->category->category}}</td>
+                <td>{{ $product->descProd }}</td>
+                <td>{{ $product->stock }}</td>
+                <td>${{$product->price}}</td>
+                <td><img src="/imagen/products/{{$product->imagen}}" alt="producto"></td>
                 <td>
-                    <img src="/imagen/products/{{$product->imagen}}" alt="Producto" style="width: 50px; height: auto;">
+                    <a type="button" class="btn btn-warning" href="{{route('products.edit',$product)}}">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </a>
+                    <a type="button" class="btn btn-danger" href="{{route('products.delete',$product)}}">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                 </td>
-                <td>{{$product->nameProd}}</td>
-                <td>{{$product->descProd}}</td>
-                <td>{{$product->category->category}}</td>
-                <td>{{$product->stock}}</td>
-                <td>{{$product->price}}</td>
-                <td></td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 
+<!-- Paginación -->
+<div class="d-flex justify-content-center mt-3">
+    {{ $products->links() }}
+</div>
+
 @endsection
+

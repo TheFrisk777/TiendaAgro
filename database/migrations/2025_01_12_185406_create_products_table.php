@@ -20,12 +20,7 @@ return new class extends Migration
             $table->decimal('price', 6, 1)->nullable()->default(123.45);
             $table->string('imagen', 100)->nullable()->default('Imagen');
             $table->timestamps();
-
-            $table->foreign(columns: 'cat_id')
-                ->references(columns: 'id')
-                ->on('categories')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

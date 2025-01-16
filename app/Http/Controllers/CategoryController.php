@@ -23,7 +23,8 @@ class CategoryController extends Controller
     public function create()
     {
         // Mostrar el formulario de creación
-        return view('admin.categories.create');
+        $categories = Category::pluck('id','category');
+        return view( 'admin/categories/create',compact('categories'));
     }
 
     /**
@@ -31,16 +32,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Validar los datos recibidos
-        $request->validate([
-            'category' => 'required|string|max:255|unique:categories,category',
-        ]);
-
-        // Crear una nueva categoría
         Category::create($request->all());
-
-        // Redirigir con un mensaje de éxito
-        return redirect()->route('categories.index')->with('status', 'Categoría creada exitosamente.');
+        return to_route('categories.index')->with('status','Categoria Registrada');
     }
 
     /**
@@ -58,7 +51,8 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         // Mostrar el formulario de edición
-        return view('admin.categories.edit', compact('category'));
+        $categories = Category::pluck('id','xategory');
+        echo view('admin/categories/edit', compact('categories','category'));
     }
 
     /**
@@ -66,16 +60,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // Validar los datos recibidos
-        $request->validate([
-            'category' => 'required|string|max:255|unique:categories,category,' . $category->id,
-        ]);
-
-        // Actualizar la categoría
         $category->update($request->all());
-
-        // Redirigir con un mensaje de éxito
-        return redirect()->route('categories.index')->with('status', 'Categoría actualizada exitosamente.');
+        return to_route('index')->with('status','Categoria Actualizada');
     }
 
     public function delete(Category $category)
