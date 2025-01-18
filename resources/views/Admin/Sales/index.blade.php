@@ -12,37 +12,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-    /* Contenedor de la tabla */
-    .table-container {
-        margin: 0 auto; /* Centra la tabla */
-        padding: 0 20px; /* Espacio en los lados izquierdo y derecho */
-        width: 90%; /* Ajusta el ancho según lo que necesites */
-        box-sizing: border-box; /* Asegura que el padding esté dentro del ancho */
-    }
-
-    /* Tabla */
-    table {
-        width: 100%; /* La tabla ocupará el 100% del ancho del contenedor */
-        border-collapse: collapse; /* Elimina los espacios entre las celdas */
-    }
-
-    th, td {
-        padding: 8px; /* Espacio dentro de las celdas */
-        text-align: center; /* Alineación del texto dentro de las celdas */
-        border: 1px solid #ddd; /* Borde de las celdas */
-    }
-
-    th {
-        background-color: #f8f9fa; /* Color de fondo del encabezado */
-    }
-
-    /* Imagen en la tabla */
-    img {
-        width: 50px; 
-        height: auto; 
-        border-radius: 5px; /* Bordes redondeados */
-    }
-
     .button-container {
         display: flex;
         justify-content: center;
@@ -70,6 +39,24 @@
         text-decoration: none;
         color: inherit;
     }
+
+    .table-container {
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
 </style>
 
 <div class="table-container">
@@ -95,7 +82,7 @@
                         <i class="fa-solid fa-file-signature"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="{{route('sales.delete',$sale)}}">
-                        <i class="fa-solid fa-x"></i>
+                        <i class="fa-solid fa-trash"></i>
                     </a>
                 </td>
             </tr>

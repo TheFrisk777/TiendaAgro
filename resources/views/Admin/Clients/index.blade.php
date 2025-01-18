@@ -6,15 +6,12 @@
 <br>
 
 <div class="button-container">
-    <button id="Pa" class="btn btn-outline-success">
-        <a href="{{ route('clients.create') }}">Crear Cliente</a>
-    </button>
+    <a href="{{ route('clients.create') }}" class="btn btn-outline-success">Crear Cliente</a>
 </div>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-    
     .button-container {
         display: flex;
         justify-content: center;
@@ -57,10 +54,9 @@
 
     th, td {
         padding: 10px;
-        text-align: left;
+        text-align: center;
         border: 1px solid #ddd;
     }
-
 </style>
 
 <div class="table-container">

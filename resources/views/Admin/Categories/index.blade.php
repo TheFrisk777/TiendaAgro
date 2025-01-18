@@ -6,22 +6,18 @@
 <br>
 
 <div class="button-container">
-    <button id="Pa" class="btn btn-outline-success">
-        <a href="{{ route('categories.create') }}">Crear Categoría</a>
-    </button>
+    <a href="{{ route('categories.create') }}" class="btn btn-outline-success">Crear Categoria</a>
 </div>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-    /* Contenedor para centrar el botón */
     .button-container {
-        display: flex; /* Usamos flexbox para centrar */
-        justify-content: center; /* Centra horizontalmente */
-        margin-bottom: 20px; /* Espaciado inferior */
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 
-    /* Botón principal */
     #Pa {
         padding: 10px 15px;
         border-radius: 5px;
@@ -39,13 +35,11 @@
         color: #fff;
     }
 
-    /* Enlace dentro del botón */
     .btn a {
-        text-decoration: none; /* Elimina el subrayado */
-        color: inherit; /* Usa el color del contenedor padre */
+        text-decoration: none;
+        color: inherit;
     }
 
-    /* Contenedor de la tabla */
     .table-container {
         margin: 0 auto;
         padding: 0 20px;
@@ -53,7 +47,6 @@
         box-sizing: border-box;
     }
 
-    /* Tabla */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -61,10 +54,9 @@
 
     th, td {
         padding: 10px;
-        text-align: left;
+        text-align: center;
         border: 1px solid #ddd;
     }
-
 </style>
 
 <div class="table-container">
