@@ -34,8 +34,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //echo "Registro Realizado";
-        //dd($request);
+        $request->validate([
+            'nameProd' => 'required|string|max:255',               
+            'descProd' => 'required|string',
+            'stock'    => 'required',
+            'price'    => 'required',
+            'imagen'   => 'required',
+        ]);
+
         $data=$request->all();
         if(isset($data["imagen"])){
             $data["imagen"]= $filename = time().".".$data["imagen"]->extension();
@@ -61,7 +67,7 @@ class ProductController extends Controller
     {
         //
         $categories = Category::pluck('id','category');
-        echo view('admin.products.edit', compact('categories','category'));
+        echo view('admin.products.edit', compact('categories','product'));
     }
 
     /**
@@ -73,12 +79,10 @@ class ProductController extends Controller
         //Si el campo imagen tiene informacion
         $data=$request->all();
         if(isset($data["imagen"])){
-            //Cambiar el nombre del archivo a cargar
             $data["imagen"]= $filename = time().".".$data["imagen"]->extension();
-            //Guardar Imagen en la Carpeta Publica
             $request->imagen->move(public_path("imagen/products"),$filename);
         }
-        $product->update($data);  // Actualizar los datos del producto
+        $product->update($data);
         return to_route('products.index')->with('status','Producto Actualizado');
     }
 

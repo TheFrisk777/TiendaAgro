@@ -2,7 +2,7 @@
 @section('content')
 
 <br>
-<h2 class="text-center">Editar Cliente</h2>
+<h2 class="text-center">Editar Producto</h2>
 <br>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -59,7 +59,7 @@
 </style>
 
 <div class="form-container">
-    <form action="{{ route('clients.update', $client->id) }}" method="POST">
+    <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         
@@ -81,14 +81,14 @@
         <input type="number" name="stock" value="{{$product->stock}}">
 
         <label for="">Precio Unitario</label>
-        <input type="text" name="unit_price" value="{{$product->unit_price}}">
+        <input type="number" name="price" value="{{$product->unit_price}}" placeholder="Ingrese el Precio">
 
         <label for="">Imagen</label>
         <input type="file" name="imagen" value="{{$product->imagen}}">
 
         <div class="form-actions">
             <button type="submit" class="btn btn-submit">Actualizar</button>
-            <a href="{{ route('clients.index') }}" class="btn btn-cancel">Cancelar</a>
+            <a href="{{ route('products.index') }}" class="btn btn-cancel">Cancelar</a>
         </div>
     </form>
 </div>

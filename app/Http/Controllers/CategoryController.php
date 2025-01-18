@@ -12,8 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // Recuperar todas las categorías con paginación
-        $categories = Category::paginate(3);
+        $categories = Category::paginate(5);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -22,7 +21,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        // Mostrar el formulario de creación
         $categories = Category::pluck('id','category');
         return view( 'admin/categories/create',compact('categories'));
     }
@@ -41,7 +39,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        // Mostrar los detalles de una categoría específica
         return view('admin.categories.show', compact('category'));
     }
 
@@ -50,8 +47,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        // Mostrar el formulario de edición
-        $categories = Category::pluck('id','xategory');
+        $categories = Category::pluck('id','category');
         echo view('admin/categories/edit', compact('categories','category'));
     }
 

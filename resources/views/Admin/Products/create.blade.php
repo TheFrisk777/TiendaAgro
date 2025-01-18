@@ -1,9 +1,9 @@
 @extends('layout.main_template')
 
 @section('content')
-
+<br>
 <h1 class="text-center">Añadir un Producto</h1>
-
+<br>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -68,7 +68,7 @@
         @csrf
         
         <label for="">Nombre del Producto</label>
-        <input type="text" name="nameProd">
+        <input type="text" name="nameProd" placeholder="Ingrese el Nombre del Producto">
 
         <label for="">Categoria</label>
         <select name="cat">
@@ -79,13 +79,13 @@
         </select>
 
         <label for="">Descripción</label>
-        <input type="text" name="descProd">
+        <input type="text" name="descProd" placeholder="Ingrese la Descripción del Producto">
         
         <label for="">Cantidad</label>
-        <input type="number" name="stock">
+        <input type="number" name="stock" placeholder="Ingrese la Cantidad de Productos">
 
         <label for="">Precio Unitario</label>
-        <input type="text" name="unit_price">
+        <input type="number" name="price" placeholder="Ingrese el Precio">
 
         <label for="">Imagen</label>
         <input type="file" name="imagen">

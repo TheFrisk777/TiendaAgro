@@ -69,7 +69,7 @@ class SaleController extends Controller
     {
         //
         $sale->update($request->all());
-        return back()->with('status','Venta Actualizada');
+        return to_route(route: 'sales.index')->with('status','Venta Actualizada');
     }
 
     public function delete(Sale $sale)

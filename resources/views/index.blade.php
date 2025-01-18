@@ -29,8 +29,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar solo incluido aquí -->
-
     <div class="center-content">
         <img src="https://zenithamericas.com.do/wp-content/uploads/2024/07/Agroquimicos-x2.svg" alt="Logo AgroTech">
         <h1>AgroTech</h1>

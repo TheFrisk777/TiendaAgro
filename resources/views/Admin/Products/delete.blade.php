@@ -3,7 +3,7 @@
 @section('content')
 
 <br>
-<h2 class="text-center">Eliminacion de Cliente</h2>
+<h2 class="text-center">Eliminacion de un Producto</h2>
 <br>
 
 <div class="form-container">
@@ -11,7 +11,7 @@
         @method("DELETE")
         @csrf
         
-        <h3>¿Quieres eliminar el Producto?</h3>
+        <h3>¿Quieres eliminar el Producto? {{$product->nameProd}}</h3>
         
         <div class="form-actions">
             <a type="button" class="btn btn-success" href="{{ route('products.index') }}">No</a>

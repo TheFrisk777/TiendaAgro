@@ -70,8 +70,7 @@
     
     
     <label for="client_id">Cliente</label>
-    <br>
-    <select name="client_id">
+    <select name="client_id" required> 
         <option value="">Selecciona...</option>
         @foreach ($clients as $client)
             <option {{ $sale->client_id == $client->id ? 'selected' : '' }} value="{{ $client->id }}">
@@ -82,7 +81,7 @@
     <br>
 
     <label for="product_id">Producto</label>
-    <select name="product_id">
+    <select name="product_id" required>
         <option value="">Selecciona...</option>
         @foreach ($products as $product)
             <option {{ $sale->product_id == $product->id ? 'selected' : '' }} value="{{ $product->id }}">
@@ -93,7 +92,7 @@
     <br>
 
     <label for="sale_date">Fecha de Venta</label>
-    <input type="date" name="sale_date" value="{{ $sale->sale_date }}">
+    <input type="date" name="sale_date" value="{{ $sale->sale_date }}" required>
 
     <div class="form-actions">
         <button type="submit" class="btn btn-submit">Actualizar</button>
