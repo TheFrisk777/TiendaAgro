@@ -64,19 +64,19 @@
         @method('PUT')
         
         <label for="name">Nombre del Cliente</label>
-        <input type="text" name="name" value="{{$client->name}}">
+        <input type="text" name="name" value="{{$client->name}}" required>
 
         <label for="last_name">Apellido del Cliente</label>
-        <input type="text" name="last_name" value="{{$client->last_name}}">
+        <input type="text" name="last_name" value="{{$client->last_name}}" required>
 
         <label for="second_last_name">Segundo Apellido del Cliente</label>
-        <input type="text" name="second_last_name" value="{{$client->second_last_name}}">
+        <input type="text" name="second_last_name" value="{{$client->second_last_name}}" required>
 
         <label for="email">Email</label>
-        <input type="text" name="email" value="{{$client->email}}">
+        <input type="text" name="email" value="{{$client->email}}" required>
 
         <label for="phone">Telefono</label>
-        <input type="text" name="phone" value="{{$client->phone}}">
+        <input type="text" name="phone" value="{{$client->phone}}" required>
 
         <div class="form-actions">
             <button type="submit" class="btn btn-submit">Actualizar</button>

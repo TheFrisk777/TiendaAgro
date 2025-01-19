@@ -64,10 +64,10 @@
         @method('PUT')
         
         <label for="">Nombre del Producto</label>
-        <input type="text" name="nameProducts" value="{{$product->nameProd}}">
+        <input type="text" name="nameProducts" value="{{$product->nameProd}}" required>
 
         <label for="">Categoria</label>
-        <select name="cat">
+        <select name="cat" required>
             <option value="">Selecciona...</option>
             @foreach ($categories as $category=>$id)
             <option {{$product->cat == $id ? 'selected': ''}} value="{{$id}}">{{$category}}</option>
@@ -75,16 +75,16 @@
         </select>
 
         <label for="">Descripción</label>
-        <input type="text" name="descProd" value="{{$product->descProd}}">
+        <input type="text" name="descProd" value="{{$product->descProd}}" required>
         
         <label for="">Cantidad</label>
-        <input type="number" name="stock" value="{{$product->stock}}">
+        <input type="number" name="stock" value="{{$product->stock}}" required>
 
         <label for="">Precio Unitario</label>
-        <input type="number" name="price" value="{{$product->unit_price}}" placeholder="Ingrese el Precio">
+        <input type="number" name="price" value="{{$product->unit_price}}" placeholder="Ingrese el Precio" required>
 
         <label for="">Imagen</label>
-        <input type="file" name="imagen" value="{{$product->imagen}}">
+        <input type="file" name="imagen" value="{{$product->imagen}}" required>
 
         <div class="form-actions">
             <button type="submit" class="btn btn-submit">Actualizar</button>

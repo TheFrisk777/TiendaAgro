@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::paginate(3); 
+        $products = Product::paginate(5); 
         return view('admin.products.index', compact('products'));
     }
 
@@ -34,14 +34,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nameProd' => 'required|string|max:255',               
-            'descProd' => 'required|string',
-            'stock'    => 'required',
-            'price'    => 'required',
-            'imagen'   => 'required',
-        ]);
-
         $data=$request->all();
         if(isset($data["imagen"])){
             $data["imagen"]= $filename = time().".".$data["imagen"]->extension();

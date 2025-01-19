@@ -70,19 +70,19 @@
         @csrf
 
         <label for="name">Nombre del Cliente</label>
-        <input type="text" name="name" placeholder="Ingrese el nombre del Cliente">
+        <input type="text" name="name" placeholder="Ingrese el nombre del Cliente" required>
 
         <label for="last_name">Apellido del Cliente</label>
-        <input type="text" name="last_name" placeholder="Ingrese el Apellido del Cliente">
+        <input type="text" name="last_name" placeholder="Ingrese el Apellido del Cliente" required>
 
         <label for="second_last_name">Segundo Apellido del Cliente</label>
-        <input type="text" name="second_last_name" placeholder="Ingrese el Segundo Apellido del Cliente">
+        <input type="text" name="second_last_name" placeholder="Ingrese el Segundo Apellido del Cliente" required>
 
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Ingrese el Email del Cliente">
+        <input type="text" name="email" placeholder="Ingrese el Email del Cliente" required>
 
         <label for="phone">Telefono</label>
-        <input type="text" name="phone" placeholder="Ingrese el Telefono del Cliente">
+        <input type="text" name="phone" placeholder="Ingrese el Telefono del Cliente" required>
 
         <div class="form-actions">
             <button type="submit" class="btn btn-submit">Registrar</button>

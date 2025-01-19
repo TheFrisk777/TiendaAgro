@@ -68,10 +68,10 @@
         @csrf
         
         <label for="">Nombre del Producto</label>
-        <input type="text" name="nameProd" placeholder="Ingrese el Nombre del Producto">
+        <input type="text" name="nameProd" placeholder="Ingrese el Nombre del Producto" required>
 
         <label for="">Categoria</label>
-        <select name="cat">
+        <select name="cat" required>
             <option value="">Selecciona...</option>
             @foreach ($categories as $category=>$id)
             <option value="{{$id}}">{{$category}}</option>
@@ -79,16 +79,16 @@
         </select>
 
         <label for="">Descripción</label>
-        <input type="text" name="descProd" placeholder="Ingrese la Descripción del Producto">
+        <input type="text" name="descProd" placeholder="Ingrese la Descripción del Producto" required>
         
         <label for="">Cantidad</label>
-        <input type="number" name="stock" placeholder="Ingrese la Cantidad de Productos">
+        <input type="number" name="stock" placeholder="Ingrese la Cantidad de Productos" required>
 
         <label for="">Precio Unitario</label>
-        <input type="number" name="price" placeholder="Ingrese el Precio">
+        <input type="number" name="price" placeholder="Ingrese el Precio" required>
 
         <label for="">Imagen</label>
-        <input type="file" name="imagen">
+        <input type="file" name="imagen" required>
 
         <div class="form-actions">
             <button type="submit" class="btn-submit">Registrar</button>

@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $fillable = ['nameProd','cat','descProd','stock','price','imagen'];
 
-    public function category():BelongsTo{ //La palabra brand puede ser esa u otra cosa
+    public function category():BelongsTo{
         return $this->belongsTo(Category::class, 'cat'); 
     }
 

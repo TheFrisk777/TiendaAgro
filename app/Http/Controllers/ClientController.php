@@ -32,13 +32,6 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'second_last_name' => 'required|string|max:255',
-            'email' => 'required',
-            'phone' => 'required'
-        ]);
         Client::create($request->all());
         return to_route('clients.index')->with('status', 'Cliente Registrado');
     }
